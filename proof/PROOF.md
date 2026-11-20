@@ -1,7 +1,7 @@
 # OEIS A113258 — There is no perfect power after a(4) = 5³ (complete negative answer)
 
 **Status:** CLOSED (project-internal). Complete proof = elementary lemmas + one published theorem (Laurent 2008, linear forms in two logarithms) + an exact finite modular certificate, checked by two independent implementations.
-**Session:** 2026-11-08, Claude (Opus 5.5) in the user's Math Open-to-Closed project. External acceptance / priority: not assessed (see §9).
+**Provenance:** 2026-11-08. Developed with AI assistance (derivation, code and computational verification). Not Lean-verified. External acceptance / priority: not assessed (see §9).
 
 ## 1. The question
 
