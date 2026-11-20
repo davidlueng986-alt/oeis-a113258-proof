@@ -1,7 +1,7 @@
 # OEIS A113258 — There is no perfect power after a(4) = 5³ (complete negative answer)
 
 **Status:** CLOSED (project-internal). Complete proof = elementary lemmas + one published theorem (Laurent 2008, linear forms in two logarithms) + an exact finite modular certificate, checked by two independent implementations.
-**Provenance:** 2026-11-08. Developed with AI assistance (derivation, code and computational verification). Not Lean-verified. External acceptance / priority: not assessed (see §9).
+**Provenance:** 2026-11-08. Developed with AI assistance (derivation, code, computational verification and the Lean formalization). Lean-checked only relative to Laurent's theorem (an axiom) and `native_decide` for the certificate table; see `lean/README.md`. External acceptance / priority: not assessed (see §9).
 
 ## 1. The question
 
@@ -95,7 +95,7 @@ These cases are exhaustive. ∎
 * OEIS A113258 page: question still posed, no answer recorded.
 * DeepMind formal-conjectures: `OeisA113258.conjecture` tagged `research open`.
 * Epoch AI "OEIS Open" benchmark (Adamczewski, arXiv:2608.11941): `oeis_a113258_conjecture_0` unsolved by all four full-set runs (Claude Opus 4.8, GPT-5.5, Gemini 3.5 Flash, Gemini 3.1 Pro).
-* No literature resolution found. Priority not established; not externally reviewed; not formalized in Lean (Lean would need Laurent's theorem as an axiom or a Mathlib formalization of linear forms in logarithms).
+* No literature resolution found. Priority not established; not externally reviewed; Lean formalization in `lean/` takes Laurent's theorem as an axiom (it is not proved in Lean) and uses `native_decide` for the finite certificate table.
 
 ## 10. Remarks
 

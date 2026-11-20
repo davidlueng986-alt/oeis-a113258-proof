@@ -23,10 +23,14 @@ The only result used without proof is M. Laurent, *Acta Arith.* **133** (2008) 3
 
 - **Finite certificate:** 1,264,003 (l, q) pairs, covering every prime 7 <= l <= 4500 and every 7 <= n <= l, with **0 failures** on independent re-check. The certificates were produced with a discrete-log generator (`code/cert_dlog.c`) and re-checked by a separate verifier that uses plain modular exponentiation and trial-division primality tests, plus a coverage check (`code/verify_direct.c`).
 - **Small cases:** n = 1..11 checked with exact big-integer arithmetic (`code/small.py`, `code/small_independent.py`).
-- **Not Lean-formalized.** Formalizing it would require Laurent's theorem as an axiom or a formalization of linear forms in logarithms.
+- **Lean 4 formalization, relative to two trusted pieces (`lean/`).** The whole argument is checked in Lean 4 + Mathlib with no `sorry`: `A113258.conjecture_false : ¬ ∃ n > 4, ∃ b > 1, ∃ e > 1, a n = b ^ e`. It depends on (1) **Laurent's theorem, stated as an axiom** (`A113258.laurent_cor2`, not proved in Lean) and (2) **`native_decide`** for the finite certificate table, which trusts Lean's compiler rather than only the kernel. It is therefore *not* an axiom-free formalization. See [`lean/README.md`](lean/README.md).
 - **Not externally reviewed.** The proof was read through step by step, but no outside referee has checked it, and priority has not been assessed. The Laurent constants have not been re-checked against the original paper.
 
 Full details are in [`logs/VERIFICATION_LOG.md`](logs/VERIFICATION_LOG.md).
+
+## Provenance
+
+Developed with AI assistance (derivation, code, computational verification and the Lean formalization). The independent verifier is deterministic C code and uses no AI at runtime.
 
 ## Repository layout
 
@@ -36,6 +40,7 @@ Full details are in [`logs/VERIFICATION_LOG.md`](logs/VERIFICATION_LOG.md).
 | `certificates/certificates_l_le_4500.txt` | Compact certificates for all primes 7 <= l <= 4500 |
 | `code/` | Certificate generator, independent verifier, compaction tool and checks |
 | `logs/VERIFICATION_LOG.md` | Verification log |
+| `lean/` | Lean 4 + Mathlib formalization (see its README for exactly what is axiomatized) |
 | `LICENSE`, `LICENSE-CC-BY-4.0.txt` | MIT (code) and CC BY 4.0 (proof text) |
 | `CITATION.cff` | Citation metadata |
 
@@ -61,6 +66,12 @@ Expected final line:
 ells=607 verified_pairs=1264003 bad=0
 ```
 
+Lean formalization (Lean `v4.36.0`, Mathlib `v4.36.0`):
+
+```bash
+cd lean && lake exe cache get && lake build   # includes the native_decide table check (about 5 extra minutes)
+```
+
 Optional extra checks (need `gmpy2`, `sympy` and `mpmath`):
 
 ```bash
@@ -73,7 +84,7 @@ python3 code/sample_check.py certs_4500.txt 7 400
 
 ## Licenses
 
-- Code (`code/`): [MIT](LICENSE)
+- Code (`code/`, `lean/`): [MIT](LICENSE)
 - Proof text, logs and certificate data (`proof/`, `logs/`, `certificates/`, this README): [CC BY 4.0](LICENSE-CC-BY-4.0.txt)
 
 ## Citation

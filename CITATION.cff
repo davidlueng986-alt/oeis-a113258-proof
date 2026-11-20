@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "A113258 has no perfect powers beyond a(4) = 5^3"
-abstract: "Proof that a(n) = sum_{i=1..n} (i!)^((n-i+1)!) is not a perfect power for every n >= 5 (OEIS A113258), using elementary lemmas, M. Laurent's linear-forms-in-two-logarithms bound (Acta Arith. 133 (2008), Cor. 2) and a finite modular certificate of 1,264,003 (l, q) pairs. Not Lean-formalized. Code is MIT-licensed; proof text is CC BY 4.0."
+abstract: "Proof that a(n) = sum_{i=1..n} (i!)^((n-i+1)!) is not a perfect power for every n >= 5 (OEIS A113258), using elementary lemmas, M. Laurent's linear-forms-in-two-logarithms bound (Acta Arith. 133 (2008), Cor. 2) and a finite modular certificate of 1,264,003 (l, q) pairs. A Lean 4 formalization is included; it takes Laurent's theorem as an axiom and uses native_decide for the certificate table. Code is MIT-licensed; proof text is CC BY 4.0."
 type: software
 authors:
   - family-names: "Liang"
