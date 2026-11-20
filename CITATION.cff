@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "A113258 has no perfect powers beyond a(4) = 5^3"
+abstract: "Proof that a(n) = sum_{i=1..n} (i!)^((n-i+1)!) is not a perfect power for every n >= 5 (OEIS A113258), using elementary lemmas, M. Laurent's linear-forms-in-two-logarithms bound (Acta Arith. 133 (2008), Cor. 2) and a finite modular certificate of 1,264,003 (l, q) pairs. Not Lean-formalized. Code is MIT-licensed; proof text is CC BY 4.0."
+type: software
+authors:
+  - family-names: "Liang"
+    given-names: "Wan Yiu David"
+version: "1.0"
+date-released: "2026-11-21"
+license: CC-BY-4.0
+repository-code: "https://github.com/davidlueng986-alt/oeis-a113258-proof"
+keywords:
+  - OEIS A113258
+  - perfect powers
+  - linear forms in logarithms
+  - modular certificate
